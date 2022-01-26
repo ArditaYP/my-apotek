@@ -1,14 +1,5 @@
 <?php
 require_once '../koneksi.php';
-function readData($result)
-{
-    $rows = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
-    }
-
-    return $rows;
-}
 
 
 // read obat
@@ -30,7 +21,7 @@ $resultsupplier = mysqli_query($conn, $querysupplier);
     <title>Obat</title>
 </head>
 <style>
-       button{
+    button {
         font-size: 1rem;
         padding: .2em 1em;
         border: none;
@@ -41,11 +32,11 @@ $resultsupplier = mysqli_query($conn, $querysupplier);
         color: green;
         transition-duration: .2s;
         cursor: pointer;
-   }
+    }
 </style>
 
 <body>
- 
+
 
     <table width=100% border=1>
         <tr class="thead">
@@ -79,11 +70,11 @@ $resultsupplier = mysqli_query($conn, $querysupplier);
             </tr>
         <?php endforeach; ?>
 
-    </table>  
-     <div class="tambahView">
+    </table>
+    <div class="tambahView">
         <a href="../login/index.php">&leftarrow; Kembali</a>
         <a href="Ohalamancreate.php"><button id="tambahView">Tambah Obat</button></a>
-        <button ><a href="../login/logout.php">Logout</a>
+        <button><a href="../login/logout.php">Logout</a>
     </div>
 </body>
 

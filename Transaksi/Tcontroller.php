@@ -1,16 +1,5 @@
 <?php
-session_start();
 require_once '../koneksi.php';
-// read data
-function readData($result)
-{
-    $rows = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
-    }
-
-    return $rows;
-}
 $queryTransaksi = "SELECT * FROM tb_transaksi JOIN tb_pelanggan ON tb_transaksi.idpelanggan = tb_pelanggan.idpelanggan";
 $resultTransaksi = mysqli_query($conn, $queryTransaksi);
 $readTransaksi = readData($resultTransaksi);

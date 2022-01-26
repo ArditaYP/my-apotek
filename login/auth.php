@@ -1,15 +1,7 @@
 <?php
-session_start();
 require_once '../koneksi.php'; // koneksi
-function readdata($result)
-{
-    $rows = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
-    }
 
-    return $rows;
-}
+// sign in
 if (isset($_POST['masuk'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -33,4 +25,25 @@ if (isset($_POST['masuk'])) {
         return header("Location: index.php");
     }
     return header("Location: index.php");
+}
+
+// sign up
+if (isset($_POST['daftar'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = "INSERT INTO tb_login VALUES ('$username', '$password', '1')";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+        echo "<script>
+        alert('Akun berhasil terdaftar! Silahkan Login');
+        document.location.href = 'index.php';
+        </script>";
+    } else {
+        echo "<script>
+        alert('Akun gagal terdaftar! Silahkan hubungi operator');
+        document.location.href = 'index.php';
+        </script>";
+    }
 }

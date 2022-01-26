@@ -1,15 +1,6 @@
 <?php
 require_once '../koneksi.php';
-// read data
-function readData($result)
-{
-    $rows = [];
-    while ($row = mysqli_fetch_assoc($result)) {
-        $rows[] = $row;
-    }
 
-    return $rows;
-}
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     // $queryTransaksi = "SELECT * FROM tb_transaksi JOIN tb_detail_transaksi ON tb_transaksi.idtransaksi = tb_detail_transaksi.idtransaksi JOIN tb_obat ON tb_obat.idobat = tb_detail_transaksi.idobat";
@@ -207,7 +198,7 @@ if (isset($_GET['id'])) {
 </style>
 
 <body>
-    <a href="Ttampilan.php">&leftarrow; Kembali</a>
+    <a href="index.php">&leftarrow; Kembali</a>
 
 
     <div class="container">

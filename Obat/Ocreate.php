@@ -13,6 +13,5 @@ if (isset($_POST['tambahobat'])){
 
     $rsp = mysqli_query($conn,$isp);
 
-    return header ("Location: Otampilan.php");
+    return header ("Location: index.php");
 }
-?>

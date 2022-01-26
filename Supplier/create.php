@@ -10,5 +10,5 @@ if (isset($_POST['tambahsupplier'])) {
 
     $rsp = mysqli_query($conn, $isp);
 
-    return header("Location: Stampilan.php");
+    return header("Location: index.php");
 }

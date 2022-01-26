@@ -1,18 +1,18 @@
 <?php
 require_once '../koneksi.php';
-if (isset($_GET['id'])){
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $result = mysqli_query($conn,"DELETE FROM tb_pelanggan WHERE idpelanggan = $id");
+    $result = mysqli_query($conn, "DELETE FROM tb_pelanggan WHERE idpelanggan = $id");
 
     if (mysqli_affected_rows($conn) > 0) {
-        echo"<script>
+        echo "<script>
         alert('Ciahhh di pecat GOBLOK');
-        document.location.href='Ptampilan.php';
+        document.location.href='index.php';
         </script>";
     } else {
-      echo"<script>
+        echo "<script>
         alert('Ga jadi di pecat masih butuh');
-        document.location.href='Ptampilan.php';
+        document.location.href='index.php';
         </script>";
     }
 }
