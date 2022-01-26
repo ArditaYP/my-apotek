@@ -1,5 +1,5 @@
 # Overview
 Ini adalah project sederhana
 
-# Change Log
+# Changelog
 - Add readme
