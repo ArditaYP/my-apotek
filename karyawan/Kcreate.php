@@ -9,5 +9,5 @@ if (isset($_POST['tambahkaryawan'])) {
 
     $rsp = mysqli_query($conn, $isp);
 
-    return header("Location: Ktampilan.php");
+    return header("Location: index.php");
 }

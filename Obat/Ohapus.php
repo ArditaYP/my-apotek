@@ -7,14 +7,13 @@ if (isset($_GET['id'])){
     if (mysqli_affected_rows($conn) > 0) {
         echo"<script>
         alert('Supplier berhasil dihapus');
-        document.location.href='Otampilan.php';
+        document.location.href='index.php';
         </script>";
     } 
     else {
       echo"<script>
         alert('supplier gagal diHapus');
-        document.location.href='Otampilan.php';
+        document.location.href='index.php';
         </script>";
     }
 }
-?>

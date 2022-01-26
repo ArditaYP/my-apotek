@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $host = 'localhost'; // host
 $username = 'root'; // username
 $password = ''; // password
@@ -13,3 +15,5 @@ if ($conn->connect_error) {
     echo 'Koneksi gagal';
     exit();
 }
+
+require_once 'functions.php';

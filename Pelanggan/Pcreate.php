@@ -11,5 +11,5 @@ if (isset($_POST['tambahpelanggan'])) {
 
     $rsp = mysqli_query($conn, $isp);
 
-    return header("Location: Ptampilan.php");
+    return header("Location: index.php");
 }
