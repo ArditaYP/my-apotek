@@ -10,12 +10,12 @@ if (isset($_GET['idd'])) {
     if (mysqli_affected_rows($conn) > 0) {
         echo "<script>
         alert('Transaksi berhasil dihapus');
-        document.location.href = 'Ttampilan.php';
+        document.location.href = 'index.php';
     </script>";
     } else {
         echo "<script>
         alert('Transaksi berhasil dihapus');
-        document.location.href = 'Ttampilan.php';
+        document.location.href = 'index.php';
     </script>";
     }
 }
