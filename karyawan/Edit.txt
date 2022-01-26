@@ -1,0 +1,90 @@
+<?php
+require_once '../koneksi.php';
+// read data
+function readData($result)
+{
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+
+    return $rows;
+}
+
+// get spesific data karyawan 
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $rqkar = mysqli_query($conn, "SELECT * FROM tb_karyawan WHERE idkaryawan = $id");
+
+    $readKaryawan = readData($rqkar)[0]; // read spesific 
+}
+
+// edit data karyawan
+if (isset($_POST['editKaryawanButton'])) {
+    $namaKaryawan = $_POST['namaKaryawan'];
+    $alamatKaryawan = $_POST['alamatKaryawan'];
+    $telpKaryawan = $_POST['telpKaryawan'];
+    $id = $_POST['id'];
+
+    $ukar = "UPDATE tb_karyawan SET namakaryawan='$namaKaryawan', alamat='$alamatKaryawan', telp='$telpKaryawan' WHERE idkaryawan = $id";
+
+    $rkar = mysqli_query($conn, $ukar);
+
+    if ($rkar) {
+        echo "<script>
+            alert('Karyawan berhasil diubah');
+            document.location.href = 'Ktampilan.php';
+        </script>";
+    } else {
+        echo "<script>
+            alert('Karyawan gagal diubah');
+            document.location.href = 'Ktampilan.php';
+        </script>";
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Karyawan</title>
+
+
+</head>
+
+<style>
+    form {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    form input {
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+</style>
+
+<body>
+
+    <form action="" method="post">
+        <h1>Edit Karyawan</h1>
+        <input type="hidden" name="id" value="<?= $readKaryawan['idkaryawan']; ?>">
+
+        <input type="text" name="namaKaryawan" id="namaKaryawan" value="<?= $readKaryawan['namakaryawan'] ?>" required>
+        </div>
+        <input type="text" name="alamatKaryawan" id="alamat" value="<?= $readKaryawan['alamat'] ?>" required>
+        </div>
+
+
+        <input type="text" name="telpKaryawan" id="telp" value="<?= $readKaryawan['telp'] ?>" required>
+        </div>
+
+        <button type="submit" name="editKaryawanButton" class="confirmButton">Tambah Karyawan</button>
+    </form>
+</body>
+
+</html>
